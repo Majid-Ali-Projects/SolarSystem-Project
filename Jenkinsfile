@@ -221,7 +221,7 @@ pipeline {
 					git config --global user.email "Jenkins@dasher.com"
 
 					git add .
-					git commit -m 'Update Image $GIT_COMMIT'
+					git commit -m "Update Image $GIT_COMMIT"
 					git push origin main
  
 				'''
