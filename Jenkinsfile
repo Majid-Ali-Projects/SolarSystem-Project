@@ -213,12 +213,13 @@ pipeline {
      			sh 'git clone -b main https://github.com/Majid-Ali-Projects/Kubernetes-Repo.git'
 			dir ('kubernetes-Repo/manifest') {
 				sh '''
+					git remote set-url origin https://github.com/Majid-Ali-Projects/Kubernetes-Repo.git
 					git remote -v
 					sed -i 's#majid359.*#majid359/solarsystem:$GIT_COMMIT#g'  deployment.yaml
 					git config --global user.email "Jenkins@dasher.com"
 
 					git add .
-					git commit 'Update Image $GIT_COMMIT'
+					git commit -m 'Update Image $GIT_COMMIT'
 					git push origin main
  
 				'''
