@@ -214,7 +214,7 @@ pipeline {
 			dir ('kubernetes-Repo/manifest') {
 				sh '''
 					git checkout main
-					sed -i 's#majid359.*#majid359/solarsystem:$GIT_COMMIT#g'  deployement.yaml
+					sed -i 's#majid359.*#majid359/solarsystem:$GIT_COMMIT#g'  deployment.yaml
 					git config --global user.email "Jenkins@dasher.com"
 
 					git add .
@@ -238,7 +238,7 @@ pipeline {
 post {
   always {
      script {
-         if (fileExsits('Kubernetes-Repo')){
+         if (fileExists('Kubernetes-Repo')){
 
 			sh 'rm -rf Kubernetes-Repo'
 		}
